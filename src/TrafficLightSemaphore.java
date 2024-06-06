@@ -1,5 +1,8 @@
 import com.sun.jdi.PathSearchingVirtualMachine;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class TrafficLightSemaphore {
 
     private static final int GREEN_DURATION = 5;
@@ -45,8 +48,41 @@ public class TrafficLightSemaphore {
         isRunning = false;
     }
 }
+
 class TrafficLightSemaphoreMain {
+
+    static TrafficLightSemaphore tls =   new TrafficLightSemaphore();
+
     public static void main(String[] args) {
-        new TrafficLightSemaphore().start();
+        final long execTime = 60 * 1000;
+
+        Timer timer = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                tls.start();
+                System.out.println("Executando código...");
+
+            }
+        };
+
+        timer.scheduleAtFixedRate(tt, 0, execTime);
+
+        // Aguarda o término da execução do código
+        try {
+            Thread.sleep(execTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Cancela o timer
+        tls.stop();
+        timer.cancel();
+        System.out.println("Código finalizado.");
+
+
+
+
+
     }
 }
