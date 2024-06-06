@@ -1,3 +1,5 @@
+package main;
+
 import java.util.concurrent.Semaphore;
 
 public class SemaphoreScript {
