@@ -10,7 +10,7 @@ public class TrafficLightSemaphore {
     private static final int RED_DURATION = 3;
 
     private volatile int currentPhase = 0; // 0: Red, 1: Green, 2: Yellow
-    private volatile boolean isRunning = true; // Flag to control loop execution
+    private volatile boolean isRunning = true;
 
     public void start() {
         new Thread(() -> {
@@ -61,8 +61,7 @@ class TrafficLightSemaphoreMain {
             @Override
             public void run() {
                 tls.start();
-                System.out.println("Executando código...");
-
+                System.out.println("Executando código por 60s...");
             }
         };
 
@@ -79,10 +78,6 @@ class TrafficLightSemaphoreMain {
         tls.stop();
         timer.cancel();
         System.out.println("Código finalizado.");
-
-
-
-
 
     }
 }

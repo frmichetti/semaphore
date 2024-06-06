@@ -1,3 +1,5 @@
+package useless;
+
 public class Counter {
     public void count(){
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text

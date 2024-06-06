@@ -1,3 +1,5 @@
+package useless;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
