@@ -17,10 +17,10 @@ public class SImpExecutor {
 
         ExecutorService es = Executors.newFixedThreadPool(1);
 
-        es.execute(new MyThread(cdl1, "A"));
-        es.execute(new MyThread(cdl2, "B"));
-        es.execute(new MyThread(cdl3, "C"));
-        es.execute(new MyThread(cdl4, "D"));
+        es.execute(new MyThread(cdl1, "Thread A"));
+        es.execute(new MyThread(cdl2, "Thread B"));
+        es.execute(new MyThread(cdl3, "Thread C"));
+        es.execute(new MyThread(cdl4, "Thread D"));
 
         try{
             cdl1.await();
