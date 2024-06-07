@@ -51,10 +51,11 @@ public class TrafficLightSemaphore {
 
 class TrafficLightSemaphoreMain {
 
-    static TrafficLightSemaphore tls =   new TrafficLightSemaphore();
+    public static final int EXEC_TIME = 60 * 1000;
+    static TrafficLightSemaphore tls = new TrafficLightSemaphore();
 
     public static void main(String[] args) {
-        final long execTime = 60 * 1000;
+        final long execTime = EXEC_TIME;
 
         Timer timer = new Timer();
         TimerTask tt = new TimerTask() {
